@@ -56,6 +56,7 @@ fi
 mkdir -p $VIMDIR
 ./build-vimrc.sh
 bash -c "cd $HOME; ln -s $HERE/vimrc .vimrc;"
+bash -c "cd $HOME; ln -s $HERE/coc-settings.json $VIMDIR/coc-settings.json;"
 
 #Używa vundle
 #Instaluj tak:
