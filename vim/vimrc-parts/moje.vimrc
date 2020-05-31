@@ -54,3 +54,5 @@ let g:lightline = {
     \   'left': [ [ 'mode', 'paste' ], ['readonly', 'absolutepath', 'modified' ] ],
     \   }
     \}
+
+imap jj <ESC>
