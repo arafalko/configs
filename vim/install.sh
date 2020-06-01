@@ -46,7 +46,7 @@ else
     if [ $INSTALL_CURRENT_VIM = 1 ]; then
         sudo apt update
         sudo apt install -y software-properties-common
-        add-apt-repository -y ppa:jonathonf/vim
+        sudo add-apt-repository -y ppa:jonathonf/vim
     fi
     sudo apt update
     sudo apt install -y $INSTALL
