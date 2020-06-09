@@ -1,7 +1,8 @@
 set encoding=utf-8
 set number relativenumber
 set mouse=a
-set timeoutlen=1000
+"set timeoutlen=1000
+set timeoutlen=500
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -56,3 +57,7 @@ let g:lightline = {
     \}
 
 imap jj <ESC>
+
+" Szukaj rekurencyjnie findem
+set path+=**
+
