@@ -46,6 +46,7 @@ nmap <F2> :w<CR>
 runtime! macros/matchit.vim
 
 "Swap file w oddzielnym katalogu
+silent !mkdir -p $HOME/.vim/swapfiles
 set directory=$HOME/.vim/swapfiles
 
 set cmdheight=1
