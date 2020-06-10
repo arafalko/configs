@@ -28,9 +28,13 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
 
 "Plugin 'valloric/youcompleteme'
-Plugin 'neoclide/coc.nvim'
+"Plugin 'neoclide/coc.nvim'
 
 Plugin 'dbext.vim'
+
+Plugin 'tpope/vim-fugitive'
+
+Plugin 'ludovicchabant/vim-gutentags'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
