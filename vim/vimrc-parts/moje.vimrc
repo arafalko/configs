@@ -30,7 +30,8 @@ else
     set background=dark
 endif
 "colorscheme solarized
-colorscheme cobalt
+"colorscheme cobalt
+colorscheme desert
 
 " Zapisywanie do plików jako root
 cmap w!! w !sudo tee > /dev/null %

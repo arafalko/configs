@@ -11,9 +11,9 @@ if [ ${*^^} = 'YCM' ]; then
     INSTALL_YCM=1
 fi
 
-INSTALL_CURRENT_VIM=0
-if [ ${*^^} = 'PPA' ]; then
-    INSTALL_CURRENT_VIM=1
+INSTALL_CURRENT_VIM=1
+if [ ${*^^} = 'Not-PPA' ]; then
+    INSTALL_CURRENT_VIM=0
 fi
 
 INSTALL_COC=0
@@ -55,17 +55,25 @@ fi
 #Utwórz link symboliczny do .vimrc
 mkdir -p $VIMDIR
 ./build-vimrc.sh
-bash -c "cd $HOME; ln -s $HERE/vimrc .vimrc;"
-bash -c "cd $HOME; ln -s $HERE/coc-settings.json $VIMDIR/coc-settings.json;"
+bash -c "cd $HOME; rm .vimrc; ln -s $HERE/vimrc .vimrc;"
+if [ $INSTALL_COC = 1 ]; then
+    bash -c "cd $HOME; rm $VIMDIR/coc-settings.json; ln -s $HERE/coc-settings.json $VIMDIR/coc-settings.json;"
+    yes | curl -sL install-node.now.sh/lts | bash  # nodejs
+    curl --compressed -o- -L https://yarnpkg.com/install.sh | bash # yarn
+fi
 
 #Używa vundle
 #Instaluj tak:
 #Miałem jakieś dziwne problemy z tym jak coś fika to zmień plugin na bundle
-git clone https://github.com/VundleVim/Vundle.vim.git $VIMDIR/plugin/Vundle.vim
+if [ ! -d "$VIMDIR/plugin/Vundle.vim" ]; then
+    git clone https://github.com/VundleVim/Vundle.vim.git "$VIMDIR/plugin/Vundle.vim"
+else
+    bash -c "cd $VIMDIR/plugin/Vundle.vim; git pull"
+fi
 
 #Schemat kolorów Cobalt
 #Trzeba zrobić link symboliczny do colors:
-bash -c "cd $VIMDIR; ln -s $HERE/colors colors" 
+bash -c "cd $VIMDIR; rm colors ; ln -s $HERE/colors colors" 
 
 #Pliki Swp nie w folderze z edytowanym plikiem
 mkdir -p $VIMDIR/swapfiles
@@ -87,8 +95,6 @@ if [ $INSTALL_YCM = 1 ]; then
 fi
 
 if [ $INSTALL_COC = 1 ]; then
-    curl -sL install-node.now.sh/lts | bash  # nodejs
-    curl --compressed -o- -L https://yarnpkg.com/install.sh | bash # yarn
     source $HOME/.bashrc 
     bash -c "cd $HOME/.vim/bundle/coc.nvim && yarn install --frozen-lockfile"
 fi 
