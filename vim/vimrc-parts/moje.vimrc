@@ -58,7 +58,8 @@ let g:lightline = {
     \   }
     \}
 
-imap jj <ESC>
+imap fj <ESC>
+imap jf <ESC>
 
 " Szukaj rekurencyjnie findem
 set path+=**
