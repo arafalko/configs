@@ -40,7 +40,7 @@ cmap w!! w !sudo tee > /dev/null %
 "let g:ycm_autoclose_preview_window_after_completion=1
 "map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-nmap <F2> :w<CR>
+"nmap <F2> :w<CR>
 
 " Matchit
 "packadd! matchit
