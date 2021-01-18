@@ -1,0 +1,5 @@
+To środek konfiguracji fish.
+Ustaw aby ~/.config/fish wskzywał na ten katalog.
+
+No i będzie narzekał, żeby zainstalować OMF. To trzeba odpalić:
+curl -L https://get.oh-my.fish | fish
