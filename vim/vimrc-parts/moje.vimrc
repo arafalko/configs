@@ -18,6 +18,7 @@ set smartcase
 set autowrite
 set hidden
 set autoread
+set splitright
 nmap <leader>f :CtrlP<CR>
 nmap <leader>m :MRU<CR>
 
