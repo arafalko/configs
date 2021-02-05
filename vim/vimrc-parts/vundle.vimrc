@@ -13,6 +13,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'itchyny/lightline.vim'
 
+Plugin 'argtextobj.vim'
+
 "Plugin 'tpope/vim-surround'
 
 "Plugin 'mru.vim'
