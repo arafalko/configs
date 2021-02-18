@@ -21,6 +21,7 @@ set autoread
 set splitright
 set omnifunc=syntaxcomplete#Complete
 set cursorline
+set cursorcolumn
 nmap <leader>f :CtrlP<CR>
 nmap <leader>m :MRU<CR>
 

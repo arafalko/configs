@@ -15,6 +15,8 @@ Plugin 'itchyny/lightline.vim'
 
 Plugin 'argtextobj.vim'
 
+Plugin 'embear/vim-localvimrc'
+
 "Plugin 'tpope/vim-surround'
 
 "Plugin 'mru.vim'
