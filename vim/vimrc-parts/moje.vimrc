@@ -20,8 +20,7 @@ set hidden
 set autoread
 set splitright
 set omnifunc=syntaxcomplete#Complete
-set cursorline
-set cursorcolumn
+map <leader>c :set cursorline!<Bar>set cursorcolumn!<CR>
 nmap <leader>f :CtrlP<CR>
 nmap <leader>m :MRU<CR>
 
