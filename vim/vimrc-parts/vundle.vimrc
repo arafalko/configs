@@ -17,9 +17,11 @@ Plugin 'argtextobj.vim'
 
 Plugin 'embear/vim-localvimrc'
 
+Plugin 'preservim/vimux'
+
 "Plugin 'tpope/vim-surround'
 
-"Plugin 'mru.vim'
+Plugin 'mru.vim'
 
 "Plugin 'scrooloose/nerdcommenter'
 
@@ -27,7 +29,7 @@ Plugin 'embear/vim-localvimrc'
 
 "Plugin 'terryma/vim-multiple-cursors'
 
-"Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 "Plugin 'altercation/vim-colors-solarized'
 

@@ -23,6 +23,8 @@ set omnifunc=syntaxcomplete#Complete
 map <leader>c :set cursorline!<Bar>set cursorcolumn!<CR>
 nmap <leader>f :CtrlP<CR>
 nmap <leader>m :MRU<CR>
+map <leader>vp :VimuxPromptCommand<cr>
+map <leader>vl :VimuxRunLastCommand<cr>
 
 let g:solarized_termcolors=256
 set t_Co=256
