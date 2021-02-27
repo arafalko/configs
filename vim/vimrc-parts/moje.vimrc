@@ -9,6 +9,7 @@ set shiftwidth=4
 set autoindent
 set laststatus=2
 set wildmenu
+set wildmode=list:longest,full
 set hlsearch
 set incsearch
 set showcmd
@@ -20,11 +21,11 @@ set hidden
 set autoread
 set splitright
 set omnifunc=syntaxcomplete#Complete
-map <leader>c :set cursorline!<Bar>set cursorcolumn!<CR>
+nmap <leader>c :set cursorline!<Bar>set cursorcolumn!<CR>
 nmap <leader>f :CtrlP<CR>
 nmap <leader>m :MRU<CR>
-map <leader>vp :VimuxPromptCommand<cr>
-map <leader>vl :VimuxRunLastCommand<cr>
+nmap <leader>vp :VimuxPromptCommand<cr>
+nmap <leader>vl :VimuxRunLastCommand<cr>
 
 let g:solarized_termcolors=256
 set t_Co=256
