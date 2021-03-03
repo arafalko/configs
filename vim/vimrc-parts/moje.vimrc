@@ -9,6 +9,7 @@ set autoindent
 set laststatus=2
 set wildmenu
 set wildmode=list:longest,full
+set wildignorecase
 set hlsearch
 set incsearch
 set showcmd
@@ -19,12 +20,17 @@ set autowrite
 set hidden
 set autoread
 set splitright
+
+"Autocomplete
 set omnifunc=syntaxcomplete#Complete
+set completeopt=longest,menuone
+noremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 nmap <leader>c :set cursorline!<Bar>set cursorcolumn!<CR>
 nmap <leader>f :CtrlP<CR>
 nmap <leader>m :MRU<CR>
-nmap <leader>vp :VimuxPromptCommand<cr>
-nmap <leader>vl :VimuxRunLastCommand<cr>
+nmap <leader>vc :VimuxPromptCommand<cr>
+nmap <leader>vp :VimuxRunLastCommand<cr>
 
 let g:solarized_termcolors=256
 set t_Co=256
