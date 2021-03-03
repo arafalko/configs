@@ -25,14 +25,7 @@ Plugin 'mru.vim'
 
 "Plugin 'scrooloose/nerdcommenter'
 
-"Plugin 'airblade/vim-gitgutter'
-
-"Plugin 'terryma/vim-multiple-cursors'
-
 Plugin 'ctrlpvim/ctrlp.vim'
-
-"Plugin 'altercation/vim-colors-solarized'
-
 "Plugin 'valloric/youcompleteme'
 "Plugin 'neoclide/coc.nvim'
 "Bundle 'omnisharp/omnisharp-vim' 
@@ -41,6 +34,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 "Plugin 'dbext.vim'
 
 "Plugin 'tpope/vim-fugitive'
+
+Plugin 'preservim/nerdtree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

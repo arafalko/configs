@@ -32,6 +32,9 @@ nmap <leader>m :MRU<CR>
 nmap <leader>vc :VimuxPromptCommand<cr>
 nmap <leader>vp :VimuxRunLastCommand<cr>
 
+nnoremap <leader>t :NERDTreeToggle<CR>   
+nnoremap <leader><C-t> :NERDTreeFind<CR>
+
 let g:solarized_termcolors=256
 set t_Co=256
 syntax enable
