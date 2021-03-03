@@ -15,7 +15,7 @@ Plugin 'itchyny/lightline.vim'
 
 Plugin 'argtextobj.vim'
 
-Plugin 'embear/vim-localvimrc'
+"Plugin 'embear/vim-localvimrc'
 
 Plugin 'preservim/vimux'
 
