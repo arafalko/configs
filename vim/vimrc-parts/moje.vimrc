@@ -75,6 +75,11 @@ let g:lightline = {
 imap jk <ESC>
 imap kj <ESC>
 
+map <Up> <NOP>
+map <Right> <NOP>
+map <Down> <NOP>
+map <Left> <NOP>
+
 " Szukaj rekurencyjnie findem
 set path+=**
 
