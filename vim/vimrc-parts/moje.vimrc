@@ -2,6 +2,8 @@ set encoding=utf-8
 set number relativenumber
 set mouse=a
 set timeoutlen=1000
+set notimeout
+set nottimeout
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -24,7 +26,7 @@ set splitright
 "Autocomplete
 set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone
-noremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 nmap <leader>c :set cursorline!<Bar>set cursorcolumn!<CR>
 nmap <leader>f :CtrlP<CR>
@@ -74,11 +76,22 @@ let g:lightline = {
 
 imap jk <ESC>
 imap kj <ESC>
+imap jj <ESC>
 
 map <Up> <NOP>
 map <Right> <NOP>
 map <Down> <NOP>
 map <Left> <NOP>
+
+"set <M-A>=<press Ctrl-V><press Meta-A> 
+"imap <press ctrl-v><press Esc>a <M-A>
+inoremap <M-j> <C-N>
+set <M-j>=j 
+imap j <M-j>
+inoremap <M-k> <C-P>
+set <M-k>=k 
+imap k <M-k>
+
 
 " Szukaj rekurencyjnie findem
 set path+=**
