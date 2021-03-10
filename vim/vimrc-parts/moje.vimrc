@@ -37,6 +37,15 @@ nmap <leader>vp :VimuxRunLastCommand<cr>
 nnoremap <leader>t :NERDTreeToggle<CR>   
 nnoremap <leader><C-t> :NERDTreeFind<CR>
 
+"Q jako uruchom ostatnie makro
+nnoremap Q @@
+
+"Nawigacja po oknach ctrl = hjkl
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
 let g:solarized_termcolors=256
 set t_Co=256
 syntax enable
