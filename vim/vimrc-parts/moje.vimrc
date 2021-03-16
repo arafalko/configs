@@ -22,13 +22,14 @@ set autowrite
 set hidden
 set autoread
 set splitright
+set cursorline
 
 "Autocomplete
 set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-nmap <leader>c :set cursorline!<Bar>set cursorcolumn!<CR>
+nmap <leader>c :set cursorcolumn!<CR>
 nmap <leader>f :CtrlP<CR>
 nmap <leader>m :MRU<CR>
 nmap <leader>vc :VimuxPromptCommand<cr>
