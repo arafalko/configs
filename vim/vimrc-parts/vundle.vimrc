@@ -36,6 +36,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 "Plugin 'tpope/vim-fugitive'
 
 Plugin 'preservim/nerdtree'
+Plugin 'townk/vim-autoclose'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
