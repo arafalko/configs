@@ -19,7 +19,7 @@ Plugin 'argtextobj.vim'
 
 Plugin 'preservim/vimux'
 
-"Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 
 Plugin 'mru.vim'
 
