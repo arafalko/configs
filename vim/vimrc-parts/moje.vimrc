@@ -29,6 +29,8 @@ set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
+let mapleader = " "
+
 nmap <leader>c :set cursorcolumn!<CR>
 nmap <leader>f :CtrlP<CR>
 nmap <leader>m :MRU<CR>
