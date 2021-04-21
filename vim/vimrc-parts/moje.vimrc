@@ -22,6 +22,7 @@ set autowrite
 set hidden
 set autoread
 set splitright
+set splitbelow
 set cursorline
 
 "Autocomplete
