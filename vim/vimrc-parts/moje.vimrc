@@ -32,17 +32,14 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 let mapleader = " "
 
-nmap <leader>c :set cursorcolumn!<CR>
-nmap <leader>f :CtrlP<CR>
-nmap <leader>m :MRU<CR>
-nmap <leader>vc :VimuxPromptCommand<cr>
-nmap <leader>vp :VimuxRunLastCommand<cr>
+nnoremap <leader>c :set cursorcolumn!<CR>
+nnoremap <leader>f :CtrlP<CR>
+nnoremap <leader>m :MRU<CR>
+nnoremap <leader>vc :VimuxPromptCommand<cr>
+nnoremap <leader>vp :VimuxRunLastCommand<cr>
 
 nnoremap <leader>t :NERDTreeToggle<CR>   
 nnoremap <leader><C-t> :NERDTreeFind<CR>
-
-"Q jako uruchom ostatnie makro
-nnoremap Q @@
 
 "Nawigacja po oknach ctrl = hjkl
 nnoremap <c-j> <c-w>j
@@ -87,24 +84,24 @@ let g:lightline = {
     \   }
     \}
 
-imap jk <ESC>
-imap kj <ESC>
-imap jj <ESC>
+inoremap jk <ESC>
+inoremap kj <ESC>
+inoremap jj <ESC>
+inoremap ii <ESC>
 
-map <Up> <NOP>
-map <Right> <NOP>
-map <Down> <NOP>
-map <Left> <NOP>
+noremap <Up> <NOP>
+noremap <Right> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
 
 "set <M-A>=<press Ctrl-V><press Meta-A> 
 "imap <press ctrl-v><press Esc>a <M-A>
 inoremap <M-j> <C-N>
 set <M-j>=j 
-imap j <M-j>
+inoremap j <M-j>
 inoremap <M-k> <C-P>
 set <M-k>=k 
-imap k <M-k>
-
+inoremap k <M-k>
 
 " Szukaj rekurencyjnie findem
 set path+=**
