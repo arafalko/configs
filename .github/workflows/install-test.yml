@@ -35,7 +35,7 @@ jobs:
     - name: Install basic software
       run: |
         cd $GITHUB_WORKSPACE/
-        ./install-software.sh
+        sudo ./install-software.sh
 
     - name: Install basic config
       run: |
