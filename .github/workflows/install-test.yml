@@ -13,7 +13,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  install-full-vim:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -28,3 +28,18 @@ jobs:
         cd $GITHUB_WORKSPACE/vim
         ./install.sh
         
+  install-all-with-basic-config:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install basic software
+      run: |
+        cd $GITHUB_WORKSPACE/
+        ./install-software.sh
+
+    - name: Install basic config
+      run: |
+        cd $GITHUB_WORKSPACE/
+        ./install-configs.sh
+
+
