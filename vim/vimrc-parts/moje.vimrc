@@ -2,8 +2,13 @@ set encoding=utf-8
 set number relativenumber
 set mouse=a
 set timeoutlen=1000
-set notimeout
-set nottimeout
+if has('linux')
+    set timeout
+    set ttimeout
+else
+    set notimeout
+    set nottimeout
+endif
 set expandtab
 set tabstop=4
 set shiftwidth=4
