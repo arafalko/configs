@@ -13,6 +13,15 @@ cd ~/.vim
 ln -s "$HERE"/vim/colors colors
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+#Nvim
+mkdir -p $"HERE"/nvim
+if [ =z ${XDG_CONFIG_HOME} ]; then
+        cd ${XDG_CONFIG_HOME}/nvim
+    else
+        cd ~/.config/nvim
+fi
+ln -s "$HERE"/vim/vimrc init.vim
+
 #Tmux
 cd ~
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
