@@ -23,6 +23,8 @@
     filetree_direction = "left"
     bootstrap_before = "myspacevim#before"
     bootstrap_after = "myspacevim#after"
+    #q do makr
+    windows_smartclose = ''
 
 # Enable autocomplete layer
 [[layers]]
@@ -38,15 +40,22 @@
 [[layers]]
     name = "default"
 
-#[[layers]]
-#    name = "ctrlp"
-
 [[layers]]
-    name = "fzf"
+    name = "ctrlp"
+
+#[[layers]]
+#    name = "fzf"
 
 [[layers]]
     name = "lang#dockerfiles.lang/dockerfile/"
 
-#[[custom_plugins]]
-#    repo = "vim-scripts/argtextobj.vim"
-#    merged = false
+[[custom_plugins]]
+    repo = "vim-scripts/argtextobj.vim"
+    merged = false
+
+[[layer]]
+  name = "lang#csharp"
+  highlight_types = 0
+
+[[leyer]]
+  name = "lang#sql"
