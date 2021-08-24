@@ -47,15 +47,18 @@
 #    name = "fzf"
 
 [[layers]]
-    name = "lang#dockerfiles.lang/dockerfile/"
+    name = "lang#dockerfile"
 
 [[custom_plugins]]
     repo = "vim-scripts/argtextobj.vim"
     merged = false
 
-[[layer]]
-  name = "lang#csharp"
-  highlight_types = 0
+[[layers]]
+    name = "lang#csharp"
+    highlight_types = 0
 
-[[leyer]]
-  name = "lang#sql"
+[[layers]]
+    name = "lang#sql"
+
+[[layers]]
+    name = "lsp"
