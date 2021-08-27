@@ -1,0 +1,7 @@
+# Visual Studio Vim plugin config
+# Place in User dir
+map gi :vsc Edit.GoToImplementation<CR>
+map gk :vsc Edit.PreviousMethod<CR>
+map gj :vsc Edit.NextMethod<CR>
+map gr :vsc Edit.FindAllReferences<CR>
+map <Leader>k :vsc Window.PinTab<CR>
