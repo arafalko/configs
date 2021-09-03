@@ -3,3 +3,17 @@ Ustaw aby ~/.config/fish wskzywał na ten katalog.
 
 No i będzie narzekał, żeby zainstalować OMF. To trzeba odpalić:
 curl -L https://get.oh-my.fish | fish
+
+#Fzf
+Plugin zainstalowany tak:
+
+omg install fzf
+
+# Info z https://github.com/jethrokuan/fzf
+Legacy keybinding, new keybinding
+Ctrl-t	Ctrl-o	Find a file.
+Ctrl-r	Ctrl-r	Search through command history.
+Alt-c	Alt-c	cd into sub-directories (recursively searched).
+Alt-Shift-c	Alt-Shift-c	cd into sub-directories, including hidden ones.
+Ctrl-o	Alt-o	Open a file/dir using default editor ($EDITOR)
+Ctrl-g	Alt-Shift-o	Open a file/dir using xdg-open or open command
