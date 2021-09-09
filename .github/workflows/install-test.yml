@@ -28,18 +28,28 @@ jobs:
         cd $GITHUB_WORKSPACE/vim
         ./install.sh
         
-  install-all-with-basic-config:
+  test-configures:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Install basic software
       run: |
         cd $GITHUB_WORKSPACE/
-        sudo ./install-software.sh
+        export DEBIAN_FRONTEND=noninteractive
+        sudo apt-get update && sudo apt-get install -y \
+                                            curl \
+                                            git \
+                                            fish \
+                                            fzf \
+                                            tmux \
+                                            awesome
 
-    - name: Install basic config
+    - name: Run configs
       run: |
         cd $GITHUB_WORKSPACE/
-        ./install-configs.sh
+        ./configure-fish.sh
+        ./configure-tmux.sh
+        ./configure-spacevim.sh
+        ./configure-awesome.sh
 
 
