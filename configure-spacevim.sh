@@ -9,4 +9,4 @@ curl -sLf https://spacevim.org/install.sh | bash
 
 cd ~/
 
-ln -s "$HERE"/vim/spacevim/.SpaceVim.d ~/.SpaceVim.d
+ln -s "$HERE"/vim/spacevim/SpaceVim.d ~/.SpaceVim.d
