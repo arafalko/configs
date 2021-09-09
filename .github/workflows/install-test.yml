@@ -45,12 +45,22 @@ jobs:
                                             tmux \
                                             awesome
 
-    - name: Run configs
+    - name: Run configure-fish
       run: |
         cd $GITHUB_WORKSPACE/
         sudo ./configure-fish.sh
+
+    - name: Run configure-tmux
+      run: |
+        cd $GITHUB_WORKSPACE/
         sudo ./configure-tmux.sh
+
+    - name: Run configure-spacevim
+      run: |
+        cd $GITHUB_WORKSPACE/
         sudo ./configure-spacevim.sh
+
+    - name: Run configure-awesome
+      run: |
+        cd $GITHUB_WORKSPACE/
         sudo ./configure-awesome.sh
-
-
