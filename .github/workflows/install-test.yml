@@ -48,9 +48,9 @@ jobs:
     - name: Run configs
       run: |
         cd $GITHUB_WORKSPACE/
-        ./configure-fish.sh
-        ./configure-tmux.sh
-        ./configure-spacevim.sh
-        ./configure-awesome.sh
+        sudo ./configure-fish.sh
+        sudo ./configure-tmux.sh
+        sudo ./configure-spacevim.sh
+        sudo ./configure-awesome.sh
 
 
