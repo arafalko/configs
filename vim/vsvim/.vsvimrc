@@ -5,3 +5,5 @@ map gk :vsc Edit.PreviousMethod<CR>
 map gj :vsc Edit.NextMethod<CR>
 map gr :vsc Edit.FindAllReferences<CR>
 map <Leader>k :vsc Window.PinTab<CR>
+
+source ~/.vimrc
