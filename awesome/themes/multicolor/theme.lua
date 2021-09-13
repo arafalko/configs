@@ -10,6 +10,7 @@ local lain  = require("lain")
 local awful = require("awful")
 local wibox = require("wibox")
 local dpi   = require("beautiful.xresources").apply_dpi
+local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 
 local os = os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
@@ -313,8 +314,13 @@ function theme.at_screen_connect(s)
             netupinfo.widget,
             memicon,
             memory.widget,
-            cpuicon,
-            cpu.widget,
+            cpu_widget({
+              width = 150,
+              step_width = 2,
+              step_spacing = 1
+            }),
+            --cpuicon,
+            --cpu.widget,
             --fsicon,
             --theme.fs.widget,
             --weathericon,
@@ -326,7 +332,7 @@ function theme.at_screen_connect(s)
             clockicon,
             mytextclock,
             volicon,
-            theme.volume.widget,
+            theme.volume.widget
         },
     }
 
