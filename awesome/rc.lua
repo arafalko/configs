@@ -91,11 +91,18 @@ local themes = {
 local chosen_theme = themes[1]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
-local terminal     = "xfce-terminal"
+local terminal     = "alacritty"
 local vi_focus     = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "nvim"
 local browser      = "opera"
+
+function file_check(file_name)
+  local found = os.execute("which "..file_name) ~= nil
+end
+
+-- check if terminal is available
+if not file_check(terminal) then terminal = "xfce4-terminal" end
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
@@ -287,13 +294,13 @@ globalkeys = mytable.join(
               {description = "view  previous nonempty", group = "tag"}),
 
     -- Default client focus
-    awful.key({ altkey,           }, "j",
+    awful.key({ altkey, "Shift" }, "j",
         function ()
             awful.client.focus.byidx( 1)
         end,
         {description = "focus next by index", group = "client"}
     ),
-    awful.key({ altkey,           }, "k",
+    awful.key({ altkey, "Shift" }, "k",
         function ()
             awful.client.focus.byidx(-1)
         end,
