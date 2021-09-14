@@ -98,12 +98,14 @@ local editor       = os.getenv("EDITOR") or "nvim"
 local browser      = "opera"
 
 function file_check(file_name)
-  local found = os.execute("which "..file_name) == 0
+  local found = os.execute("which "..file_name) 
   return found
 end
 
 -- check if terminal is available
 if not file_check(terminal) then terminal = "xfce4-terminal" end
+
+naughty.notify({ text = "Using "..terminal, position = "top_middle", timeout = 5 })
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
