@@ -98,7 +98,8 @@ local editor       = os.getenv("EDITOR") or "nvim"
 local browser      = "opera"
 
 function file_check(file_name)
-  local found = os.execute("which "..file_name) ~= nil
+  local found = os.execute("which "..file_name) == 0
+  return found
 end
 
 -- check if terminal is available
