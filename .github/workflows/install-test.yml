@@ -43,8 +43,7 @@ jobs:
                                             fish \
                                             fzf \
                                             tmux \
-                                            awesome \
-                                            rofi
+                                            awesome 
 
     - name: Run configure-fish
       run: |
@@ -66,7 +65,3 @@ jobs:
         cd $GITHUB_WORKSPACE/
         sudo ./configure-awesome.sh
 
-    - name: Run configure-rofi
-      run: |
-        cd $GITHUB_WORKSPACE/
-        sudo ./configure-rofi.sh
