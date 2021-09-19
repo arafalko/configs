@@ -43,7 +43,7 @@ jobs:
                                             fish \
                                             fzf \
                                             tmux \
-                                            awesome 
+                                            awesome
 
     - name: Run configure-fish
       run: |
@@ -64,4 +64,3 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE/
         sudo ./configure-awesome.sh
-
