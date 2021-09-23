@@ -4,6 +4,8 @@ function! myspacevim#before() abort
   set smartcase
   inoremap <A-j> <C-N>
   inoremap <A-k> <C-P>
+  cnoremap <A-j> <C-N>
+  cnoremap <A-k> <C-P>
   set splitright
   set splitbelow
 endfunction

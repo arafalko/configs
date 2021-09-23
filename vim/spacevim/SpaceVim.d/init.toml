@@ -53,6 +53,10 @@
     repo = "vim-scripts/argtextobj.vim"
     merged = false
 
+[[custom_plugins]]
+    repo = "tpope/vim-dadbod"
+    merged = false
+
 [[layers]]
     name = "lang#csharp"
     highlight_types = 0
