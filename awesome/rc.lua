@@ -613,7 +613,11 @@ clientkeys = mytable.join(
             c.maximized_horizontal = not c.maximized_horizontal
             c:raise()
         end ,
-        {description = "(un)maximize horizontally", group = "client"})
+        {description = "(un)maximize horizontally", group = "client"}),
+    awful.key({ modkey, }, "Left", customization.func.client_sideline_left),
+    awful.key({ modkey, }, "Right", customization.func.client_sideline_right),
+    awful.key({ modkey, }, "Up", customization.func.client_sideline_top),
+    awful.key({ modkey, }, "Down", customization.func.client_sideline_bottom),
 )
 
 -- Bind all key numbers to tags.
@@ -808,6 +812,248 @@ client.connect_signal("request::titlebars", function(c)
         layout = wibox.layout.align.horizontal
     }
 end)
+
+
+do 
+  -- closures for client_status
+  -- client_status[client] = {sidelined = <boolean>, geometry= <client geometry>}
+  local client_status = {}
+
+  customization.func.client_sideline_left = function (c)
+    local scr = screen[awful.screen.focused()]
+    local workarea = scr.workarea
+    if client_status[c] == nil then
+      client_status[c] = {sidelined=false, geometry=nil}
+    end
+    if client_status[c].sidelined then
+      if client_status[c].geometry then
+        c:geometry(client_status[c].geometry)
+      end
+    else
+      client_status[c].geometry = c:geometry()
+      workarea.width = math.floor(workarea.width/2)
+      c:geometry(workarea)
+    end
+    client_status[c].sidelined = not client_status[c].sidelined
+  end
+
+  customization.func.client_sideline_right = function (c)
+    local scr = screen[awful.screen.focused()]
+    local workarea = scr.workarea
+    if client_status[c] == nil then
+      client_status[c] = {sidelined=false, geometry=nil}
+    end
+    if client_status[c].sidelined then
+      if client_status[c].geometry then
+        c:geometry(client_status[c].geometry)
+      end
+    else
+      client_status[c].geometry = c:geometry()
+      workarea.x = workarea.x + math.floor(workarea.width/2)
+      workarea.width = math.floor(workarea.width/2)
+      c:geometry(workarea)
+    end
+    client_status[c].sidelined = not client_status[c].sidelined
+  end
+
+  customization.func.client_sideline_top = function (c)
+    local scr = screen[awful.screen.focused()]
+    local workarea = scr.workarea
+    if client_status[c] == nil then
+      client_status[c] = {sidelined=false, geometry=nil}
+    end
+    if client_status[c].sidelined then
+      if client_status[c].geometry then
+        c:geometry(client_status[c].geometry)
+      end
+    else
+      client_status[c].geometry = c:geometry()
+      workarea.height = math.floor(workarea.height/2)
+      c:geometry(workarea)
+    end
+    client_status[c].sidelined = not client_status[c].sidelined
+  end
+
+  customization.func.client_sideline_bottom = function (c)
+    local scr = screen[awful.screen.focused()]
+    local workarea = scr.workarea
+    if client_status[c] == nil then
+      client_status[c] = {sidelined=false, geometry=nil}
+    end
+    if client_status[c].sidelined then
+      if client_status[c].geometry then
+        c:geometry(client_status[c].geometry)
+      end
+    else
+      client_status[c].geometry = c:geometry()
+      workarea.y = workarea.y + math.floor(workarea.height/2)
+      workarea.height = math.floor(workarea.height/2)
+      c:geometry(workarea)
+    end
+    client_status[c].sidelined = not client_status[c].sidelined
+  end
+
+  customization.func.client_sideline_extend_left = function (c, by)
+    local cg = c:geometry()
+    if by then
+      cg.x = cg.x - by
+      cg.width = cg.width + by
+    else -- use heuristics
+      local delta = math.floor(cg.x/7)
+      if delta ~= 0 then
+        cg.x = cg.x - delta
+        cg.width = cg.width + delta
+      end
+    end
+    c:geometry(cg)
+  end
+
+  customization.func.client_sideline_extend_right = function (c, by)
+    local cg = c:geometry()
+    if by then
+      cg.width = cg.width + by
+    else
+      local workarea = screen[awful.screen.focused()].workarea
+      local rmargin = math.max( (workarea.x + workarea.width - cg.x - cg.width), 0)
+      local delta = math.floor(rmargin/7)
+      if delta ~= 0 then
+        cg.width = cg.width + delta
+      end
+    end
+    c:geometry(cg)
+  end
+
+  customization.func.client_sideline_extend_top = function (c, by)
+    local cg = c:geometry()
+    if by then
+      cg.y = cg.y - by
+      cg.height = cg.height + by
+    else
+      local delta = math.floor(cg.y/7)
+      if delta ~= 0 then
+        cg.y = cg.y - delta
+        cg.height = cg.height + delta
+      end
+    end
+    c:geometry(cg)
+  end
+
+  customization.func.client_sideline_extend_bottom = function (c, by)
+    local cg = c:geometry()
+    if by then
+      cg.height = cg.height + by
+      else
+    local workarea = screen[awful.screen.focused()].workarea
+    local bmargin = math.max( (workarea.y + workarea.height - cg.y - cg.height), 0)
+    local delta = math.floor(bmargin/7)
+    if delta ~= 0 then
+      cg.height = cg.height + delta
+    end
+      end
+      c:geometry(cg)
+  end
+
+  customization.func.client_sideline_shrink_left = function (c, by)
+    local cg = c:geometry()
+    local min = customization.default.property.minimal_client_width
+    if by then
+      cg.width = math.max(cg.width - by, min)
+    else
+      local delta = math.floor(cg.width/11)
+      if delta ~= 0 and cg.width > min then
+        cg.width = cg.width - delta
+      end
+    end
+    c:geometry(cg)
+  end
+
+  customization.func.client_sideline_shrink_right = function (c, by)
+    local cg = c:geometry()
+    local min = customization.default.property.minimal_client_width
+    if by then
+      local t = cg.x + cg.width
+      cg.width = math.max(cg.width - by, min)
+      cg.x = t - cg.width
+    else
+      local delta = math.floor(cg.width/11)
+      if delta ~= 0 and cg.width > min then
+        cg.x = cg.x + delta
+        cg.width = cg.width - delta
+      end
+    end
+    c:geometry(cg)
+  end
+
+  customization.func.client_sideline_shrink_top = function (c, by)
+    local cg = c:geometry()
+    local min = customization.default.property.minimal_client_height
+    if by then
+      cg.height = math.max(cg.height - by, min)
+    else
+      local delta = math.floor(cg.height/11)
+      if delta ~= 0 and cg.height > min then
+        cg.height = cg.height - delta
+      end
+    end
+    c:geometry(cg)
+  end
+
+  customization.func.client_sideline_shrink_bottom = function (c, by)
+    local cg = c:geometry()
+    local min = customization.default.property.minimal_client_height
+    if by then
+      local t = cg.y + cg.width
+      cg.height = math.max(cg.height - by, min)
+      cg.y = t - cg.height
+    else
+      local delta = math.floor(cg.height/11)
+      if delta ~= 0 and cg.height > min then
+        cg.y = cg.y + delta
+        cg.height = cg.height - delta
+      end
+    end
+    c:geometry(cg)
+  end
+
+end
+
+customization.func.client_opaque_less = function (c)
+  local opacity = c.opacity - 0.1
+  if opacity and opacity >= customization.default.property.min_opacity then
+    c.opacity = opacity
+  end
+end
+
+customization.func.client_opaque_more = function (c)
+  local opacity = c.opacity + 0.1
+  if opacity and opacity <= customization.default.property.max_opacity then
+    c.opacity = opacity
+  end
+end
+
+customization.func.client_opaque_off = function (c)
+  awful.util.spawn_with_shell("pkill " .. customization.default.compmgr)
+end
+
+customization.func.client_opaque_on = function (c)
+  awful.util.spawn_with_shell(customization.default.compmgr.. " " .. customization.default.compmgr_args)
+end
+
+customization.func.client_swap_with_master = function (c) 
+  c:swap(awful.client.getmaster()) 
+end
+
+customization.func.client_toggle_top = function (c)
+  c.ontop = not c.ontop
+end
+
+customization.func.client_toggle_sticky = function (c)
+  c.sticky = not c.sticky
+end
+
+customization.func.client_kill = function (c)
+  c:kill()
+end
 
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)
