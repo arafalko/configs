@@ -40,11 +40,11 @@
 [[layers]]
     name = "default"
 
-[[layers]]
-    name = "ctrlp"
-
 #[[layers]]
-#    name = "fzf"
+#    name = "ctrlp"
+
+[[layers]]
+    name = "fzf"
 
 [[layers]]
     name = "lang#dockerfile"
@@ -66,3 +66,6 @@
 
 [[layers]]
     name = "lsp"
+
+[[layers]]
+  name = "lang#lua"
