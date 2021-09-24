@@ -107,6 +107,10 @@ if not file_check(terminal) then terminal = "xfce4-terminal" end
 
 naughty.notify({ text = "Using "..terminal, position = "top_middle", timeout = 5 })
 
+--customization
+customization = {}
+customization.func = {}
+
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
 awful.layout.layouts = {
@@ -614,10 +618,10 @@ clientkeys = mytable.join(
             c:raise()
         end ,
         {description = "(un)maximize horizontally", group = "client"}),
-    awful.key({ modkey, }, "Left", customization.func.client_sideline_left),
-    awful.key({ modkey, }, "Right", customization.func.client_sideline_right),
-    awful.key({ modkey, }, "Up", customization.func.client_sideline_top),
-    awful.key({ modkey, }, "Down", customization.func.client_sideline_bottom),
+    awful.key({ modkey, }, "Left", customization.func.client_sideline_left, {description = "1", group = "mine"}),
+    awful.key({ modkey, }, "Right", customization.func.client_sideline_right, {description = "2", group = "mine"}),
+    awful.key({ modkey, }, "Up", customization.func.client_sideline_top, {description = "3", group = "mine"}),
+    awful.key({ modkey, }, "Down", customization.func.client_sideline_bottom,{description = "4", group = "mine"})
 )
 
 -- Bind all key numbers to tags.
@@ -767,52 +771,6 @@ client.connect_signal("manage", function (c)
 end)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
-client.connect_signal("request::titlebars", function(c)
-    -- Custom
-    if beautiful.titlebar_fun then
-        beautiful.titlebar_fun(c)
-        return
-    end
-
-    -- Default
-    -- buttons for the titlebar
-    local buttons = mytable.join(
-        awful.button({ }, 1, function()
-            c:emit_signal("request::activate", "titlebar", {raise = true})
-            awful.mouse.client.move(c)
-        end),
-        awful.button({ }, 3, function()
-            c:emit_signal("request::activate", "titlebar", {raise = true})
-            awful.mouse.client.resize(c)
-        end)
-    )
-
-    awful.titlebar(c, { size = 16 }) : setup {
-        { -- Left
-            awful.titlebar.widget.iconwidget(c),
-            buttons = buttons,
-            layout  = wibox.layout.fixed.horizontal
-        },
-        { -- Middle
-            { -- Title
-                align  = "center",
-                widget = awful.titlebar.widget.titlewidget(c)
-            },
-            buttons = buttons,
-            layout  = wibox.layout.flex.horizontal
-        },
-        { -- Right
-            awful.titlebar.widget.floatingbutton (c),
-            awful.titlebar.widget.maximizedbutton(c),
-            awful.titlebar.widget.stickybutton   (c),
-            awful.titlebar.widget.ontopbutton    (c),
-            awful.titlebar.widget.closebutton    (c),
-            layout = wibox.layout.fixed.horizontal()
-        },
-        layout = wibox.layout.align.horizontal
-    }
-end)
-
 
 do 
   -- closures for client_status
@@ -1017,43 +975,54 @@ do
 
 end
 
-customization.func.client_opaque_less = function (c)
-  local opacity = c.opacity - 0.1
-  if opacity and opacity >= customization.default.property.min_opacity then
-    c.opacity = opacity
-  end
-end
 
-customization.func.client_opaque_more = function (c)
-  local opacity = c.opacity + 0.1
-  if opacity and opacity <= customization.default.property.max_opacity then
-    c.opacity = opacity
-  end
-end
 
-customization.func.client_opaque_off = function (c)
-  awful.util.spawn_with_shell("pkill " .. customization.default.compmgr)
-end
+client.connect_signal("request::titlebars", function(c)
+    -- Custom
+    if beautiful.titlebar_fun then
+        beautiful.titlebar_fun(c)
+        return
+    end
 
-customization.func.client_opaque_on = function (c)
-  awful.util.spawn_with_shell(customization.default.compmgr.. " " .. customization.default.compmgr_args)
-end
+    -- Default
+    -- buttons for the titlebar
+    local buttons = mytable.join(
+        awful.button({ }, 1, function()
+            c:emit_signal("request::activate", "titlebar", {raise = true})
+            awful.mouse.client.move(c)
+        end),
+        awful.button({ }, 3, function()
+            c:emit_signal("request::activate", "titlebar", {raise = true})
+            awful.mouse.client.resize(c)
+        end)
+    )
 
-customization.func.client_swap_with_master = function (c) 
-  c:swap(awful.client.getmaster()) 
-end
+    awful.titlebar(c, { size = 16 }) : setup {
+        { -- Left
+            awful.titlebar.widget.iconwidget(c),
+            buttons = buttons,
+            layout  = wibox.layout.fixed.horizontal
+        },
+        { -- Middle
+            { -- Title
+                align  = "center",
+                widget = awful.titlebar.widget.titlewidget(c)
+            },
+            buttons = buttons,
+            layout  = wibox.layout.flex.horizontal
+        },
+        { -- Right
+            awful.titlebar.widget.floatingbutton (c),
+            awful.titlebar.widget.maximizedbutton(c),
+            awful.titlebar.widget.stickybutton   (c),
+            awful.titlebar.widget.ontopbutton    (c),
+            awful.titlebar.widget.closebutton    (c),
+            layout = wibox.layout.fixed.horizontal()
+        },
+        layout = wibox.layout.align.horizontal
+    }
+end)
 
-customization.func.client_toggle_top = function (c)
-  c.ontop = not c.ontop
-end
-
-customization.func.client_toggle_sticky = function (c)
-  c.sticky = not c.sticky
-end
-
-customization.func.client_kill = function (c)
-  c:kill()
-end
 
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)
