@@ -8,6 +8,10 @@ function! myspacevim#before() abort
   cnoremap <A-k> <C-P>
   set splitright
   set splitbelow
+  nnoremap <c-j> <c-w>j
+  nnoremap <c-k> <c-w>k
+  nnoremap <c-h> <c-w>h
+  nnoremap <c-l> <c-w>l
 endfunction
 
 function! myspacevim#after() abort
