@@ -2,8 +2,10 @@ set -gx EDITOR nvim
 
 set -g fish_greeting
 
-if type -q pfetch
-  pfetch
+if status is-interactive
+  if type -q pfetch
+    pfetch
+  end
 end
 
 fish_vi_key_bindings
