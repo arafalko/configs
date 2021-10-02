@@ -10,5 +10,6 @@ ln -s "$HERE"/rofi/config.rasi ~/.config/rafi/config.rasi
 if [[ $- == *i* ]]
 then
   rofi-theme-selector
+  # najładniejszy glue_pro_blue
 fi
 

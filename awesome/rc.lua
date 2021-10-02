@@ -104,6 +104,7 @@ end
 
 -- check if terminal is available
 if not file_check(terminal) then terminal = "xfce4-terminal" end
+if not file_check(terminal) then terminal = "konsole" end
 
 naughty.notify({ text = "Using "..terminal, position = "top_middle", timeout = 5 })
 
