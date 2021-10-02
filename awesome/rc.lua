@@ -106,7 +106,11 @@ end
 if not file_check(terminal) then terminal = "xfce4-terminal" end
 if not file_check(terminal) then terminal = "konsole" end
 
-naughty.notify({ text = "Using "..terminal, position = "top_middle", timeout = 5 })
+-- check if browser is available
+if not file_check(browser) then browser = "vivaldi-stable" end
+if not file_check(browser) then browser = "firefox" end
+
+naughty.notify({ text = "Using "..terminal..", "..browser, position = "top_middle", timeout = 5 })
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
