@@ -97,20 +97,27 @@ local cycle_prev   = true  -- cycle with only the previously focused client or a
 local editor       = os.getenv("EDITOR") or "nvim"
 local browser      = "opera"
 
-function file_check(file_name)
-  local found = os.execute("which "..file_name) 
-  return found
+do
+  local browsers = {"opera", "vivaldi-stable", "firefox"}
+  local terminals = {"alacritty", "xfce-terminal", "konsole"}
+
+  function file_check(file_name)
+    local found = os.execute("which "..file_name) 
+    return found
+  end
+
+  function first_existing(array)
+    for i, el in ipairs(array) do
+      if file_check(el) then return el end
+    end
+    return "not-found-any"
+  end
+
+  browser = first_existing(browsers)
+  terminal = first_existing(terminals)
+
+  naughty.notify({ text = "Terminal: "..terminal..", Browser: "..browser, position = "top_middle", timeout = 5 })
 end
-
--- check if terminal is available
-if not file_check(terminal) then terminal = "xfce4-terminal" end
-if not file_check(terminal) then terminal = "konsole" end
-
--- check if browser is available
-if not file_check(browser) then browser = "vivaldi-stable" end
-if not file_check(browser) then browser = "firefox" end
-
-naughty.notify({ text = "Using "..terminal..", "..browser, position = "top_middle", timeout = 5 })
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
