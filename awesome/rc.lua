@@ -99,7 +99,7 @@ local browser      = "opera"
 
 do
   local browsers = {"opera", "vivaldi-stable", "firefox"}
-  local terminals = {"alacritty", "xfce-terminal", "konsole"}
+  local terminals = {"alacritty", "xfce4-terminal", "konsole"}
 
   function file_check(file_name)
     local found = os.execute("which "..file_name) 
