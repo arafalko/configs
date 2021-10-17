@@ -634,14 +634,14 @@ clientkeys = mytable.join(
     awful.key({ modkey, "Mod1"    }, "Up",     function () awful.client.incwfact(-0.01)    end, {description = "Resize window in Up", group = "client"}),
 
     --To move windows with mod+shift+←/↓/↑/→                            
-    awful.key({ modkey, "Shift"   }, "Down",   function (c) c:relative_move(  0,  20,   0,   0) end, {description = "Move window Left", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "Up",     function (c) c:relative_move(  0, -20,   0,   0) end, {description = "Move window Down", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "Left",   function (c) c:relative_move(-20,   0,   0,   0) end, {description = "Move window Up", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "Right",  function (c) c:relative_move( 20,   0,   0,   0) end, {description = "Move window Right", group = "client"}),
+    awful.key({ modkey, "Shift", "Ctrl"   }, "Down",   function (c) c:relative_move(  0,  20,   0,   0) end, {description = "Move window Down", group = "client"}),
+    awful.key({ modkey, "Shift", "Ctrl"   }, "Up",     function (c) c:relative_move(  0, -20,   0,   0) end, {description = "Move window Up", group = "client"}),
+    awful.key({ modkey, "Shift", "Ctrl"   }, "Left",   function (c) c:relative_move(-20,   0,   0,   0) end, {description = "Move window Left", group = "client"}),
+    awful.key({ modkey, "Shift", "Ctrl"   }, "Right",  function (c) c:relative_move( 20,   0,   0,   0) end, {description = "Move window Right", group = "client"}),
 
     --To resize windows with mod+shift+PgUp/PgDn
     awful.key({ modkey, "Shift"   }, "Next",   function (c) c:relative_move( 20,  20, -40, -40) end, {description = "Resize window PgUp", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "Prior",  function (c) c:relative_move(-20, -20,  40,  40) end, {description = "Resize windowa PgDn", group = "client"})
+    awful.key({ modkey, "Shift"   }, "Prior",  function (c) c:relative_move(-20, -20,  40,  40) end, {description = "Resize window PgDn", group = "client"})
 )
 
 -- Bind all key numbers to tags.
@@ -764,7 +764,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = false }
+      }, properties = { titlebars_enabled = true }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
