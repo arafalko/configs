@@ -5,7 +5,7 @@ source ./configure-base.sh
 
 mkdir -p ~/.config/rofi
 
-ln -s "$HERE"/rofi/config.rasi ~/.config/rafi/config.rasi
+ln -s "$HERE"/rofi/config.rasi ~/.config/rofi/config.rasi
 
 if [[ $- == *i* ]]
 then
