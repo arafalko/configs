@@ -140,7 +140,7 @@ configuration {
     kb-row-up:           "Up,Alt+k,Shift+Tab,Shift+ISO_Left_Tab";
     kb-row-down:         "Down,Alt+j";
     kb-accept-entry:     "Control+m,Return,KP_Enter";
-    terminal:            "mate-terminal";
+    terminal:            "konsole";
     kb-remove-to-eol:    "Control+Shift+e";
     kb-mode-next:        "Shift+Right,Control+Tab";
     kb-mode-previous:    "Shift+Left,Control+Shift+Tab,Control+h";
