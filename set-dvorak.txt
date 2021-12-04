@@ -1,0 +1,1 @@
+localectl set-x11-keymap pl pc105 dvorak
