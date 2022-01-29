@@ -12,6 +12,7 @@ function! myspacevim#before() abort
   nnoremap <c-k> <c-w>k
   nnoremap <c-h> <c-w>h
   nnoremap <c-l> <c-w>l
+  inoremap ii <ESC>
 endfunction
 
 function! myspacevim#after() abort
