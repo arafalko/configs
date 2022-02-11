@@ -21,4 +21,4 @@ set fish_command_timer_min_cmd_duration 1000
 set fish_command_timer_time_format '%H:%M:%S'
 
 # fist_prompt_pwd
-set fish_prompt_pwd_dir_length 16
+set fish_prompt_pwd_dir_length 6
