@@ -6,6 +6,14 @@ if status is-interactive
   if type -q pfetch
     pfetch
   end
+
+  if type -q tmux
+    set output (tmux list-sessions 2>&1)
+    if string match --invert --quiet 'no server running*' "$output"
+      echo Tmux sessions
+      echo $output
+    end
+  end
 end
 
 fish_vi_key_bindings
