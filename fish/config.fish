@@ -7,8 +7,8 @@ if status is-interactive
     pfetch
   end
 
-  if type -q tmux
-    set output (tmux list-sessions 2>&1)
+  if type -q tmux; and not set -q TMUX; # 1 oznacza że nie znaleziono tej zmiennej
+    set output (tmux list-sessions 2>&1) # Wyświetl listę sesji tmuxa gdy nie jesteś w tmuxie
     if string match --invert --quiet 'no server running*' "$output"
       echo Tmux sessions
       echo $output
