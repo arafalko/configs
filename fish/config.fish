@@ -12,6 +12,8 @@ if status is-interactive
     if string match --invert --quiet 'no server running*' "$output"
       echo Tmux sessions
       echo $output
+    else
+      tmux # rozpocznij nową intstancję
     end
   end
 end
