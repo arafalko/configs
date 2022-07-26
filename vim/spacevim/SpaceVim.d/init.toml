@@ -40,9 +40,6 @@
 [[layers]]
     name = "default"
 
-#[[layers]]
-#    name = "ctrlp"
-
 [[layers]]
     name = "fzf"
 
@@ -62,10 +59,15 @@
     highlight_types = 0
 
 [[layers]]
-    name = "lang#sql"
-
-[[layers]]
     name = "lsp"
 
 [[layers]]
   name = "lang#lua"
+
+[[layers]]
+  name = "lang#sql"
+
+[[custom_plugins]]
+  name = "vim-scripts/dbext.vim"
+  merged = false
+
