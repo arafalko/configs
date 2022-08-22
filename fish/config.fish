@@ -22,6 +22,10 @@ if status is-interactive
   end
 end
 
+if type -q dotnet
+  complete -f -c dotnet -a "(dotnet complete (commandline -cp))"
+end
+
 fish_vi_key_bindings
 fish_user_key_bindings
 

@@ -47,6 +47,9 @@
     name = "fzf"
 
 [[layers]]
+    name = "fzf.vim"
+
+[[layers]]
     name = "lang#dockerfile"
 
 [[custom_plugins]]
