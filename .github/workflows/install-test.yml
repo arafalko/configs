@@ -43,7 +43,8 @@ jobs:
                                             fish \
                                             fzf \
                                             tmux \
-                                            awesome
+                                            awesome \
+                                            emacs
 
     - name: Run configure-fish
       run: |
