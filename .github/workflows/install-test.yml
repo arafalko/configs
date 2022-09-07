@@ -64,3 +64,8 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE/
         sudo ./configure-awesome.sh
+
+    - name: Run configure-emacs
+      run: |
+           cd $GITHUB_WORKSPACE
+           sudo ./configure-emacs.sh
