@@ -14,6 +14,13 @@ if status is-interactive
         if string match --invert --quiet 'error*' "$output"
           echo Tmux sessions
           echo $output
+          set sessions_opened (echo $output | wc -l)
+          echo $sessions_opened
+          if [ "$sessions_opened" = "1" ]
+            set first_window (echo $output | sed 's/:.*//g')
+            echo Only one window so attaching to $first_window
+            tmux a -t $first_window
+          end
         end
       else
         tmux # rozpocznij nową instancję
