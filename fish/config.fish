@@ -20,10 +20,12 @@ if status is-interactive
             set first_window (echo $output | sed 's/:.*//g')
             echo Only one window so attaching to $first_window
             tmux a -t $first_window
+            kill $fish_pid
           end
         end
       else
         tmux # rozpocznij nową instancję
+        kill $fish_pid
       end
     end
   end
