@@ -14,12 +14,14 @@ if status is-interactive
           echo Tmux sessions
           echo $output
           set sessions_opened (echo $output | wc -l)
-          echo $sessions_opened
           if [ "$sessions_opened" = "1" ]
             set first_window (echo $output | sed 's/:.*//g')
-            echo Only one window so attaching to $first_window
-            tmux a -t $first_window
-            kill $fish_pid
+            set is_attached (echo $output | sed -r "s/.*[(](.*)[)]\$/\1/g")
+            if string match --invert --quiet $is_attached 'attached'
+              echo Only one window so attaching to $first_window
+              tmux a -t $first_window
+              kill $fish_pid
+            end
           end
       else
         tmux # rozpocznij nową instancję
