@@ -117,6 +117,15 @@ do
   terminal = first_existing(terminals)
 
   naughty.notify({ text = "Terminal: "..terminal..", Browser: "..browser, position = "top_middle", timeout = 5 })
+
+  local to_autorun = {
+    "discord --start-minimized"
+  }
+  for _, run in pairs(to_autorun) do
+    if file_check(run) then
+      awful.util.spawn(run)
+    end
+  end
 end
 
 awful.util.terminal = terminal
