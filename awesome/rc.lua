@@ -287,7 +287,11 @@ root.buttons(mytable.join(
 -- {{{ Key bindings
 
 globalkeys = mytable.join(
-    -- Destroy all notifications
+    awful.key({modkey}, "t",
+        function()
+          local traywidget =  wibox.widget.systray()
+          traywidget:set_screen(awful.screen.focused())
+        end, {description = "move systray to screen", group = "awesome"}),    -- Destroy all notifications
     awful.key({ "Control",           }, "space", function() naughty.destroy_all_notifications() end,
               {description = "destroy all notifications", group = "hotkeys"}),
     -- Take a screenshot
