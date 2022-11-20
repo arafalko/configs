@@ -503,6 +503,20 @@ globalkeys = mytable.join(
         end,
         {description = "volume 0%", group = "hotkeys"}),
 
+    -- Keychron volume
+    awful.key({}, "#123",
+        function ()
+            os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
+            beautiful.volume.update()
+        end,
+        {description = "volume up", group = "hotkeys"}),
+    awful.key({}, "#122",
+        function ()
+            os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
+            beautiful.volume.update()
+        end,
+        {description = "volume down", group = "hotkeys"}),
+
     -- MPD control
     awful.key({ altkey, "Control" }, "Up",
         function ()
