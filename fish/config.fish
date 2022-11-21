@@ -9,6 +9,7 @@ if status is-interactive
 
   if type -q tmux; and not set -q TMUX; # 1 oznacza że nie znaleziono tej zmiennej
     set output (tmux list-sessions 2>&1) # Wyświetl listę sesji tmuxa gdy nie jesteś w tmuxie
+    tmux source-file ~/.tmux.conf
     if string match --invert --quiet 'no server running*' "$output"; and string match --invert --quiet 'error*' "$output"
         echo Tmux sessions
         echo $output
@@ -26,6 +27,7 @@ if status is-interactive
       tmux # rozpocznij nową instancję
       kill $fish_pid
     end
+    tmux source-file ~/.tmux.conf
   end
 
 end
