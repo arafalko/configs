@@ -117,6 +117,15 @@ do
   terminal = first_existing(terminals)
 
   naughty.notify({ text = "Terminal: "..terminal..", Browser: "..browser, position = "top_middle", timeout = 5 })
+
+  local to_autorun = {
+    "discord --start-minimized"
+  }
+  for _, run in pairs(to_autorun) do
+    if file_check(run) then
+      awful.util.spawn(run)
+    end
+  end
 end
 
 awful.util.terminal = terminal
@@ -278,7 +287,11 @@ root.buttons(mytable.join(
 -- {{{ Key bindings
 
 globalkeys = mytable.join(
-    -- Destroy all notifications
+    -- awful.key({modkey}, "t",
+        -- function()
+          -- local traywidget =  wibox.widget.systray()
+          -- traywidget:set_screen(awful.screen.focused())
+        -- end, {description = "move systray to screen", group = "awesome"}),    -- Destroy all notifications
     awful.key({ "Control",           }, "space", function() naughty.destroy_all_notifications() end,
               {description = "destroy all notifications", group = "hotkeys"}),
     -- Take a screenshot
@@ -489,6 +502,20 @@ globalkeys = mytable.join(
             beautiful.volume.update()
         end,
         {description = "volume 0%", group = "hotkeys"}),
+
+    -- Keychron volume
+    awful.key({}, "#123",
+        function ()
+            os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
+            beautiful.volume.update()
+        end,
+        {description = "volume up", group = "hotkeys"}),
+    awful.key({}, "#122",
+        function ()
+            os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
+            beautiful.volume.update()
+        end,
+        {description = "volume down", group = "hotkeys"}),
 
     -- MPD control
     awful.key({ altkey, "Control" }, "Up",

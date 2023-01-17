@@ -7,28 +7,29 @@ if status is-interactive
     pfetch
   end
 
-  if not set -q SSH_CONNECTION;
-    if type -q tmux; and not set -q TMUX; # 1 oznacza że nie znaleziono tej zmiennej
-      set output (tmux list-sessions 2>&1) # Wyświetl listę sesji tmuxa gdy nie jesteś w tmuxie
-      if string match --invert --quiet 'no server running*' "$output"
-        if string match --invert --quiet 'error*' "$output"
-          echo Tmux sessions
-          echo $output
-          set sessions_opened (echo $output | wc -l)
-          echo $sessions_opened
-          if [ "$sessions_opened" = "1" ]
-            set first_window (echo $output | sed 's/:.*//g')
+  if type -q tmux; and not set -q TMUX; # 1 oznacza że nie znaleziono tej zmiennej
+    set output (tmux list-sessions 2>&1) # Wyświetl listę sesji tmuxa gdy nie jesteś w tmuxie
+    tmux source-file ~/.tmux.conf
+    if string match --invert --quiet 'no server running*' "$output"; and string match --invert --quiet 'error*' "$output"
+        echo Tmux sessions
+        echo $output
+        set sessions_opened (echo $output | wc -l)
+        if [ "$sessions_opened" = "1" ]
+          set first_window (echo $output | sed 's/:.*//g')
+          set is_attached (echo $output | sed -r "s/.*[(](.*)[)]\$/\1/g")
+          if string match --invert --quiet $is_attached 'attached'
             echo Only one window so attaching to $first_window
             tmux a -t $first_window
             kill $fish_pid
           end
         end
-      else
-        tmux # rozpocznij nową instancję
-        kill $fish_pid
-      end
+    else
+      tmux # rozpocznij nową instancję
+      kill $fish_pid
     end
+    tmux source-file ~/.tmux.conf
   end
+
 end
 
 if type -q dotnet
