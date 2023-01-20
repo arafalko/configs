@@ -38,15 +38,16 @@ jobs:
         cd $GITHUB_WORKSPACE/
         export DEBIAN_FRONTEND=noninteractive
         sudo add-apt-repository ppa:kelleyk/emacs
-        sudo apt-get update && sudo apt-get install -y \
-                                            curl \
-                                            git \
-                                            fish \
-                                            fzf \
-                                            tmux \
-                                            awesome \
-                                            emacs27-common \
-                                            emacs27
+        sudo apt-get update 
+        sudo apt-get upgrade && sudo apt-get install -y \
+                                             curl \
+                                             git \
+                                             fish \
+                                             fzf \
+                                             tmux \
+                                             awesome \
+                                             emacs27-common \
+                                             emacs27
 
     - name: Run configure-fish
       run: |
