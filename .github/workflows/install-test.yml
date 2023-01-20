@@ -46,8 +46,7 @@ jobs:
                                              fzf \
                                              tmux \
                                              awesome \
-                                             emacs27-common \
-                                             emacs27
+                                             emacs
 
     - name: Run configure-fish
       run: |
