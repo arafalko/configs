@@ -12,8 +12,7 @@ rm installer.fish
 fish -c "omf install fzf robbyrussell z"
 
 #fisher
-curl -sL https://git.io/fisher > fisher.fish
-cat fisher.fish
-fish fisher.fish --yes --noninteracitve
-rm fisher.fish
+#curl -sL https://git.io/fisher > fisher.fish
+#fish fisher.fish --yes --noninteracitve
+#rm fisher.fish
 fish -c "fisher update"
