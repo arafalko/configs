@@ -27,7 +27,7 @@ if [ '${*^^}' = 'COC' ]; then
 fi
 
 #Instalacja potrzebhych pakietów
-INSTALL="vim-gnome"
+INSTALL="vim-gtk3"
 INSTALL=$INSTALL" git"
 
 if [ $INSTALL_YCM = 1 ]; then
