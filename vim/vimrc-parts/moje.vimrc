@@ -33,7 +33,7 @@ set cursorline
 "Autocomplete
 set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 let mapleader = " "
 
