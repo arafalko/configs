@@ -767,6 +767,7 @@ awful.rules.rules = {
           "pinentry",
         },
         class = {
+          "Tilix",
           "Arandr",
           "Blueman-manager",
           "Gpick",

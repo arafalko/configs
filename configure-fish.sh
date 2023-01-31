@@ -3,7 +3,7 @@ set -e
 
 source ./configure-base.sh
 
-ln -s "$HERE"/fish ~/.config/
+ln -s "$HERE"/fish ~/.config/fish
 
 # oh my fish
 curl -L https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > installer.fish
@@ -12,7 +12,7 @@ rm installer.fish
 fish -c "omf install fzf robbyrussell z"
 
 #fisher
-curl -sL https://git.io/fisher > fisher.fish
-fish fisher.fish --yes --noninteracitve
-rm fisher.fish
+#curl -sL https://git.io/fisher > fisher.fish
+#fish fisher.fish --yes --noninteracitve
+#rm fisher.fish
 fish -c "fisher update"
