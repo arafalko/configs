@@ -768,6 +768,7 @@ awful.rules.rules = {
         },
         class = {
           "Tilix",
+          "discord",
           "Arandr",
           "Blueman-manager",
           "Gpick",
@@ -789,7 +790,7 @@ awful.rules.rules = {
           "ConfigManager",  -- Thunderbird's about:config.
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
-      }, properties = { floating = true }},
+      }, properties = { floating = true, titlebars_enabled = true, placement = awful.placement.centered }},
 
     -- Add titlebars to normal clients and dialogs
     --[[
