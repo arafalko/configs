@@ -5,7 +5,10 @@ source ./configure-base.sh
 
 mkdir -p ~/.config/nvim
 
-curl -sLf https://spacevim.org/install.sh | bash
+curl -sLf https://spacevim.org/install.sh > install.sh 
+chmod +x install.sh
+./install.sh --no-fonts
+rm install.sh
 
 cd ~/
 
