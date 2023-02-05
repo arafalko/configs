@@ -46,7 +46,8 @@ jobs:
                                              fzf \
                                              tmux \
                                              awesome \
-                                             emacs
+                                             emacs \
+                                             xorg-font-utils
 
     - name: Run configure-fish
       run: |
