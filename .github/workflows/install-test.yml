@@ -72,7 +72,8 @@ jobs:
       run: |
            cd $GITHUB_WORKSPACE
            sudo ./configure-emacs.sh
-    - name: Run xfce
+
+    - name: Run configure-xfce
       run: |
           cd $GITHUB_WORKSPACE
           sudo ./configure-xfce4
