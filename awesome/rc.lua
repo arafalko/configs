@@ -790,7 +790,14 @@ awful.rules.rules = {
           "ConfigManager",  -- Thunderbird's about:config.
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
-      }, properties = { floating = true, titlebars_enabled = true, placement = awful.placement.centered }},
+      }, properties = { floating = true, titlebars_enabled = true, placement = awful.placement.centered },
+
+    { rule = {
+        class = {"Tilix"}
+      }, properties = {floating = false}
+    },
+
+    },
 
     -- Add titlebars to normal clients and dialogs
     --[[
