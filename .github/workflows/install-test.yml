@@ -76,4 +76,4 @@ jobs:
     - name: Run configure-xfce
       run: |
           cd $GITHUB_WORKSPACE
-          sudo ./configure-xfce4
+          sudo ./configure-xfce4.sh
