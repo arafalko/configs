@@ -119,7 +119,8 @@ do
   naughty.notify({ text = "Terminal: "..terminal..", Browser: "..browser, position = "top_middle", timeout = 5 })
 
   local to_autorun = {
-    "discord --start-minimized"
+    "discord --start-minimized",
+    "picom -b"
   }
   for _, run in pairs(to_autorun) do
     if file_check(run) then
