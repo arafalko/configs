@@ -3,10 +3,10 @@
 # command ls -alh --color=auto $argv;
 #end
 
-function ls
+function ls --wraps='ls -alh --color=auto' --description 'alias na exa -al lub ls -alh'
     if command -q exa
-       exa -al $argv
+       exa -al $argv;
     else
-       ls -alh --color=aute $argv
+       command ls -alh --color=auto $argv;
     end
 end
