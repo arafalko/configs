@@ -7,6 +7,6 @@ function ls
     if command -q exa
        exa -al $argv
     else
-       ls -alh $argv
+       ls -alh --color=aute $argv
     end
 end
