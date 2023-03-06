@@ -7,3 +7,6 @@ map gr :vsc Edit.FindAllReferences<CR>
 map <Leader>k :vsc Window.PinTab<CR>
 
 source ~/.vimrc
+
+set timeout
+set ttimeout

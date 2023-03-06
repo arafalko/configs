@@ -38,14 +38,15 @@ jobs:
         cd $GITHUB_WORKSPACE/
         export DEBIAN_FRONTEND=noninteractive
         sudo add-apt-repository ppa:kelleyk/emacs
-        sudo apt-get update && sudo apt-get install -y \
-                                            curl \
-                                            git \
-                                            fish \
-                                            fzf \
-                                            tmux \
-                                            awesome \
-                                            emacs27
+        sudo apt-get update 
+        sudo apt-get upgrade && sudo apt-get install -y \
+                                             curl \
+                                             git \
+                                             fish \
+                                             fzf \
+                                             tmux \
+                                             awesome \
+                                             emacs
 
     - name: Run configure-fish
       run: |
@@ -71,3 +72,8 @@ jobs:
       run: |
            cd $GITHUB_WORKSPACE
            sudo ./configure-emacs.sh
+
+    - name: Run configure-xfce
+      run: |
+          cd $GITHUB_WORKSPACE
+          sudo ./configure-xfce4.sh

@@ -215,8 +215,31 @@ local netupinfo = lain.widget.net({
         end
         --]]
 
-        widget:set_markup(markup.fontfg(theme.font, "#e54c62", net_now.sent .. " "))
-        netdowninfo:set_markup(markup.fontfg(theme.font, "#87af5f", net_now.received .. " "))
+        function humanize(n)
+          local m = n // 1024
+          if m > 0 then 
+            return (math.floor(n / 1024 * 10) / 10) .. "M"
+          else
+            return (math.floor(n * 10) / 10) .. "K"
+          end
+        end
+
+        local in2 = humanize(net_now.received)
+        local out2 = humanize(net_now.sent) 
+        --in2 = math.floor(net_now.received * 10) / 10 
+        --out2 = math.floor(net_now.sent * 10) / 10
+
+        string.lpad = function(str, len, char)
+          if char == nil then char = ' ' end
+          return string.rep(char, len - #str) .. str
+        end
+
+        in2 = string.lpad(tostring(in2), 8, ' ')
+        out2 = string.lpad(tostring(out2), 8, ' ')
+
+        widget:set_markup(markup.fontfg(theme.font, "#e54c62", out2))
+        netdowninfo:set_markup(markup.fontfg(theme.font, "#87af5f", in2))
+
     end
 })
 
