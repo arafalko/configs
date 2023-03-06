@@ -1,0 +1,8 @@
+VIM
+cd %USERPROFILE%
+mklink .vimrc %USERPROFILE%\configs\vim\vimrc-parts\moje.vimrc
+mklink .SpaceVim.d %USERPROFILE%\configs\vim\spacevim\SpaceVim.d
+mklink .vsvimrc %USERPROFILE%\configs\vim\vsvim\vsvimrc
+
+EMACS
+mklink /D .doom.d %USERPOFILE%\configs\emacs\doom\doom.d
