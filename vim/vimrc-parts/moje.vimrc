@@ -102,10 +102,10 @@ noremap <Left> <NOP>
 "set <M-A>=<press Ctrl-V><press Meta-A> 
 "imap <press ctrl-v><press Esc>a <M-A>
 inoremap <M-j> <C-N>
-set <M-j>=j 
+"set <M-j>=j 
 inoremap j <M-j>
 inoremap <M-k> <C-P>
-set <M-k>=k 
+"set <M-k>=k 
 inoremap k <M-k>
 
 " Szukaj rekurencyjnie findem

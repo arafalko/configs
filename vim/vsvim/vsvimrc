@@ -1,12 +1,43 @@
 # Visual Studio Vim plugin config
 # Place in User dir
-map gi :vsc Edit.GoToImplementation<CR>
-map gK :vsc Edit.PreviousMethod<CR>
-map gJ :vsc Edit.NextMethod<CR>
-map gr :vsc Edit.FindAllReferences<CR>
-map <Leader>k :vsc Window.PinTab<CR>
+nmap gi :vsc Edit.GoToImplementation<CR>
+nmap gK :vsc Edit.PreviousMethod<CR>
+nmap gJ :vsc Edit.NextMethod<CR>
+nmap gr :vsc Edit.FindAllReferences<CR>
+nmap <Leader>k :vsc Window.PinTab<CR>
 
 source ~/.vimrc
 
 set timeout
 set ttimeout
+
+set ignorecase
+set clipboard=unnamed
+
+nmap gd :vsc ReSharper.ReSharper_GotoDeclaration<CR>
+nmap <Space>r :vsc ReSharper.ReSharper_Rename<CR>
+nmap <Space>f :vsc ReSharper.ReSharper_GotoFileMember<CR>
+nmap <Space>e :vsc ReSharper.ReSharper_GotoNextErrorInSolution<CR>
+nmap <Space>E :vsc ReSharper.ReSharper_GotoPrevErrorInSolution<CR>
+nmap <Space>s :vsc ReSharper.ReSharper_SurroundWith<CR>
+nmap <Space>l :vsc ReSharper.ReSharper_LiveTemplatesInsert
+nmap <Space>u :vsc ReSharper.ReSharper_GotoUsage<CR>
+nmap <Space>d :vsc ReSharper.ReSharper_DuplicateText<CR>
+nmap <Space>, :vsc ReSharper.ReSharper_GotoText<CR>
+nmap <Space>v :vsc ReSharper.Resharper_IntroVariable<CR>
+nmap <Space>m :vsc ReSharper.ReSharper_ExtractMethod<CR>
+nmap <Space>o :vsc ReSharper.ReSharper_Move<CR>
+nmap <Space>t :vsc ReSharper.ReSharper_GotoType<CR>
+nmap <Space>tr :vsc ReSharper.ReSharper_UnitTestRunFromContext<CR>
+nmap <Space>td :vsc ReSharper.ReSharper_UnitTestDebugContext<CR>
+nmap <Space>ta :vsc ReSharper.ReSharper_UnitTestRunSolution<CR>
+nmap <Space>tl :vsc ReSharper.ReSharper_UnitTestSessionRepeatPreviousRun<CR>
+nmap <Space>tt :vsc ReSharper.ReSharper_ShowUnitTestSessions<CR>
+nmap <Space>/ :vsc ReSharper.ReSharper_LineComment<CR>
+nmap <Space>qk :vsc Tools.CustomizeKeyboard<CR>
+nmap <Space>b :vsc Build.BuildSolution<CR>
+nmap <Space><Space> :vsc Tools.InvokeAceJumpCommand<CR>
+nmap <Space>; A;<Esc>
+nmap ] :vsc ReSharper.ReSharper_GotoNextMethod<CR>
+nmap [ :vsc ReSharper.ReSharper_GotoPrevMethod<CR>
+nmap zl :so ~/.vsvimrc<CR>
