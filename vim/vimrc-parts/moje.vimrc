@@ -9,7 +9,10 @@ else
     set notimeout
     set nottimeout
 endif
-set expandtab
+
+set timeout
+set ttimeout
+
 set tabstop=4
 set shiftwidth=4
 set autoindent
@@ -89,9 +92,10 @@ let g:lightline = {
     \   }
     \}
 
-inoremap jk <ESC>
-inoremap kj <ESC>
-inoremap jj <ESC>
+"inoremap jk <ESC>
+"inoremap kj <ESC>
+"inoremap jj <ESC>
+"inoremap ii <ESC>
 inoremap ii <ESC>
 
 noremap <Up> <NOP>
@@ -111,3 +115,5 @@ inoremap k <M-k>
 " Szukaj rekurencyjnie findem
 set path+=**
 
+" Przenieć katalog roboczy do otwartego pliku
+autocmd BufEnter * silent! lcd %:p:h
